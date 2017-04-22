@@ -1,0 +1,220 @@
+<svg height="3470" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="3470" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">151 megabytes installed</tspan>
+<tspan x="10" y="42"></tspan>
+<tspan x="10" y="58">node_modules</tspan>
+<tspan x="10" y="74">└─┬ azure@2.0.0-preview </tspan>
+<tspan x="10" y="90">  ├── azure-arm-advisor@1.0.0-preview </tspan>
+<tspan x="10" y="106">  ├── azure-arm-analysisservices@2.0.0-preview </tspan>
+<tspan x="10" y="122">  ├── azure-arm-authorization@4.0.0-preview </tspan>
+<tspan x="10" y="138">  ├── azure-arm-automation@1.0.0-preview </tspan>
+<tspan x="10" y="154">  ├── azure-arm-batch@1.0.0-preview </tspan>
+<tspan x="10" y="170">  ├── azure-arm-billing@1.0.0-preview </tspan>
+<tspan x="10" y="186">  ├── azure-arm-cdn@2.0.0-preview </tspan>
+<tspan x="10" y="202">  ├── azure-arm-cognitiveservices@1.0.0-preview </tspan>
+<tspan x="10" y="218">  ├── azure-arm-commerce@1.0.0-preview </tspan>
+<tspan x="10" y="234">  ├── azure-arm-compute@1.0.0-preview </tspan>
+<tspan x="10" y="250">  ├── azure-arm-containerregistry@1.0.0-preview </tspan>
+<tspan x="10" y="266">  ├── azure-arm-customerinsights@1.0.0-preview </tspan>
+<tspan x="10" y="282">  ├── azure-arm-datalake-analytics@2.0.0-preview </tspan>
+<tspan x="10" y="298">  ├── azure-arm-datalake-store@2.0.0-preview </tspan>
+<tspan x="10" y="314">  ├── azure-arm-devtestlabs@1.0.0-preview </tspan>
+<tspan x="10" y="330">  ├── azure-arm-dns@1.0.0-preview </tspan>
+<tspan x="10" y="346">  ├── azure-arm-documentdb@1.0.0-preview </tspan>
+<tspan x="10" y="362">  ├── azure-arm-eventhub@1.0.0-preview </tspan>
+<tspan x="10" y="378">  ├── azure-arm-hdinsight@0.2.1 </tspan>
+<tspan x="10" y="394">  ├── azure-arm-hdinsight-jobs@0.1.1 </tspan>
+<tspan x="10" y="410">  ├── azure-arm-insights@1.0.0-preview </tspan>
+<tspan x="10" y="426">  ├── azure-arm-intune@1.0.0-preview </tspan>
+<tspan x="10" y="442">  ├── azure-arm-iothub@1.0.0-preview </tspan>
+<tspan x="10" y="458">  ├─┬ azure-arm-keyvault@1.0.0-preview </tspan>
+<tspan x="10" y="474">  │ └── underscore@1.8.3 </tspan>
+<tspan x="10" y="490">  ├── azure-arm-logic@1.0.0-preview </tspan>
+<tspan x="10" y="506">  ├── azure-arm-machinelearning@1.0.0-preview </tspan>
+<tspan x="10" y="522">  ├── azure-arm-mediaservices@1.0.0-preview </tspan>
+<tspan x="10" y="538">  ├── azure-arm-network@1.0.0-preview </tspan>
+<tspan x="10" y="554">  ├── azure-arm-notificationhubs@1.0.0-preview </tspan>
+<tspan x="10" y="570">  ├── azure-arm-operationalinsights@1.0.0-preview </tspan>
+<tspan x="10" y="586">  ├── azure-arm-powerbiembedded@1.0.0-preview </tspan>
+<tspan x="10" y="602">  ├── azure-arm-recoveryservices@1.0.0-preview </tspan>
+<tspan x="10" y="618">  ├── azure-arm-recoveryservicesbackup@1.0.0-preview </tspan>
+<tspan x="10" y="634">  ├── azure-arm-rediscache@1.0.0-preview </tspan>
+<tspan x="10" y="650">  ├── azure-arm-relay@1.0.0-preview </tspan>
+<tspan x="10" y="666">  ├── azure-arm-resource@2.0.0-preview </tspan>
+<tspan x="10" y="682">  ├── azure-arm-sb@1.0.0-preview </tspan>
+<tspan x="10" y="698">  ├── azure-arm-scheduler@1.0.0-preview </tspan>
+<tspan x="10" y="714">  ├── azure-arm-search@1.0.0-preview </tspan>
+<tspan x="10" y="730">  ├── azure-arm-servermanagement@1.0.0-preview </tspan>
+<tspan x="10" y="746">  ├── azure-arm-servicefabric@1.0.0-preview </tspan>
+<tspan x="10" y="762">  ├── azure-arm-servicemap@1.0.0-preview </tspan>
+<tspan x="10" y="778">  ├── azure-arm-sql@1.0.0-preview </tspan>
+<tspan x="10" y="794">  ├── azure-arm-storage@1.0.0-preview </tspan>
+<tspan x="10" y="810">  ├── azure-arm-storageimportexport@1.0.0-preview </tspan>
+<tspan x="10" y="826">  ├── azure-arm-trafficmanager@1.0.0-preview </tspan>
+<tspan x="10" y="842">  ├── azure-arm-website@1.0.0-preview </tspan>
+<tspan x="10" y="858">  ├── azure-asm-compute@0.17.1 </tspan>
+<tspan x="10" y="874">  ├── azure-asm-hdinsight@0.10.3 </tspan>
+<tspan x="10" y="890">  ├── azure-asm-mgmt@0.10.2 </tspan>
+<tspan x="10" y="906">  ├── azure-asm-network@0.13.1 </tspan>
+<tspan x="10" y="922">  ├── azure-asm-sb@0.10.2 </tspan>
+<tspan x="10" y="938">  ├── azure-asm-scheduler@0.10.2 </tspan>
+<tspan x="10" y="954">  ├── azure-asm-sql@0.10.2 </tspan>
+<tspan x="10" y="970">  ├── azure-asm-storage@0.12.1 </tspan>
+<tspan x="10" y="986">  ├── azure-asm-store@0.10.2 </tspan>
+<tspan x="10" y="1002">  ├── azure-asm-subscription@0.10.2 </tspan>
+<tspan x="10" y="1018">  ├── azure-asm-trafficmanager@0.10.4 </tspan>
+<tspan x="10" y="1034">  ├─┬ azure-asm-website@0.10.5 </tspan>
+<tspan x="10" y="1050">  │ └── moment@2.14.1 </tspan>
+<tspan x="10" y="1066">  ├─┬ azure-batch@1.0.0-preview </tspan>
+<tspan x="10" y="1082">  │ ├── @types/underscore@1.8.0 </tspan>
+<tspan x="10" y="1098">  │ └── underscore@1.8.3 </tspan>
+<tspan x="10" y="1114">  ├─┬ azure-common@0.9.18 </tspan>
+<tspan x="10" y="1130">  │ ├── dateformat@1.0.2-1.2.3 </tspan>
+<tspan x="10" y="1146">  │ ├── duplexer@0.1.1 </tspan>
+<tspan x="10" y="1162">  │ ├── envconf@0.0.4 </tspan>
+<tspan x="10" y="1178">  │ ├─┬ request@2.74.0 </tspan>
+<tspan x="10" y="1194">  │ │ ├── bl@1.1.2 </tspan>
+<tspan x="10" y="1210">  │ │ ├── caseless@0.11.0 </tspan>
+<tspan x="10" y="1226">  │ │ ├─┬ form-data@1.0.1 </tspan>
+<tspan x="10" y="1242">  │ │ │ └── async@2.3.0 </tspan>
+<tspan x="10" y="1258">  │ │ ├─┬ har-validator@2.0.6 </tspan>
+<tspan x="10" y="1274">  │ │ │ ├─┬ chalk@1.1.3 </tspan>
+<tspan x="10" y="1290">  │ │ │ │ ├── ansi-styles@2.2.1 </tspan>
+<tspan x="10" y="1306">  │ │ │ │ ├── escape-string-regexp@1.0.5 </tspan>
+<tspan x="10" y="1322">  │ │ │ │ ├─┬ has-ansi@2.0.0 </tspan>
+<tspan x="10" y="1338">  │ │ │ │ │ └── ansi-regex@2.1.1 </tspan>
+<tspan x="10" y="1354">  │ │ │ │ ├── strip-ansi@3.0.1 </tspan>
+<tspan x="10" y="1370">  │ │ │ │ └── supports-color@2.0.0 </tspan>
+<tspan x="10" y="1386">  │ │ │ ├─┬ commander@2.9.0 </tspan>
+<tspan x="10" y="1402">  │ │ │ │ └── graceful-readlink@1.0.1 </tspan>
+<tspan x="10" y="1418">  │ │ │ ├─┬ is-my-json-valid@2.16.0 </tspan>
+<tspan x="10" y="1434">  │ │ │ │ ├── generate-function@2.0.0 </tspan>
+<tspan x="10" y="1450">  │ │ │ │ ├─┬ generate-object-property@1.2.0 </tspan>
+<tspan x="10" y="1466">  │ │ │ │ │ └── is-property@1.0.2 </tspan>
+<tspan x="10" y="1482">  │ │ │ │ ├── jsonpointer@4.0.1 </tspan>
+<tspan x="10" y="1498">  │ │ │ │ └── xtend@4.0.1 </tspan>
+<tspan x="10" y="1514">  │ │ │ └─┬ pinkie-promise@2.0.1 </tspan>
+<tspan x="10" y="1530">  │ │ │   └── pinkie@2.0.4 </tspan>
+<tspan x="10" y="1546">  │ │ ├── node-uuid@1.4.8 </tspan>
+<tspan x="10" y="1562">  │ │ ├── qs@6.2.3 </tspan>
+<tspan x="10" y="1578">  │ │ └── tunnel-agent@0.4.3 </tspan>
+<tspan x="10" y="1594">  │ ├── through@2.3.8 </tspan>
+<tspan x="10" y="1610">  │ ├── tunnel@0.0.4 </tspan>
+<tspan x="10" y="1626">  │ ├── validator@3.22.2 </tspan>
+<tspan x="10" y="1642">  │ ├─┬ xml2js@0.2.7 </tspan>
+<tspan x="10" y="1658">  │ │ └── sax@0.5.2 </tspan>
+<tspan x="10" y="1674">  │ └── xmlbuilder@0.4.3 </tspan>
+<tspan x="10" y="1690">  ├── azure-gallery@2.0.0-pre.20 </tspan>
+<tspan x="10" y="1706">  ├── azure-graph@2.0.0-preview </tspan>
+<tspan x="10" y="1722">  ├── azure-insights@1.0.0-preview </tspan>
+<tspan x="10" y="1738">  ├─┬ azure-keyvault@2.0.0-preview </tspan>
+<tspan x="10" y="1754">  │ └── underscore@1.8.3 </tspan>
+<tspan x="10" y="1770">  ├─┬ azure-monitoring@0.10.5 </tspan>
+<tspan x="10" y="1786">  │ ├── moment@2.14.1 </tspan>
+<tspan x="10" y="1802">  │ └── underscore@1.8.3 </tspan>
+<tspan x="10" y="1818">  ├─┬ azure-sb@0.10.4 </tspan>
+<tspan x="10" y="1834">  │ ├── mpns@2.0.1 </tspan>
+<tspan x="10" y="1850">  │ └── wns@0.5.3 </tspan>
+<tspan x="10" y="1866">  ├─┬ azure-scheduler@0.10.3 </tspan>
+<tspan x="10" y="1882">  │ └── moment@2.14.1 </tspan>
+<tspan x="10" y="1898">  ├── azure-servicefabric@1.0.0-preview </tspan>
+<tspan x="10" y="1914">  ├─┬ azure-storage@1.3.0 </tspan>
+<tspan x="10" y="1930">  │ ├── browserify-mime@1.2.9 </tspan>
+<tspan x="10" y="1946">  │ ├── extend@1.2.1 </tspan>
+<tspan x="10" y="1962">  │ ├─┬ json-edm-parser@0.1.2 </tspan>
+<tspan x="10" y="1978">  │ │ └── jsonparse@1.2.0 </tspan>
+<tspan x="10" y="1994">  │ ├── node-uuid@1.4.8 </tspan>
+<tspan x="10" y="2010">  │ ├─┬ readable-stream@2.0.6 </tspan>
+<tspan x="10" y="2026">  │ │ ├── core-util-is@1.0.2 </tspan>
+<tspan x="10" y="2042">  │ │ ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="2058">  │ │ ├── isarray@1.0.0 </tspan>
+<tspan x="10" y="2074">  │ │ ├── process-nextick-args@1.0.7 </tspan>
+<tspan x="10" y="2090">  │ │ ├── string_decoder@0.10.31 </tspan>
+<tspan x="10" y="2106">  │ │ └── util-deprecate@1.0.2 </tspan>
+<tspan x="10" y="2122">  │ └─┬ request@2.74.0 </tspan>
+<tspan x="10" y="2138">  │   ├── caseless@0.11.0 </tspan>
+<tspan x="10" y="2154">  │   ├── extend@3.0.0 </tspan>
+<tspan x="10" y="2170">  │   ├─┬ form-data@1.0.1 </tspan>
+<tspan x="10" y="2186">  │   │ └── async@2.3.0 </tspan>
+<tspan x="10" y="2202">  │   ├── har-validator@2.0.6 </tspan>
+<tspan x="10" y="2218">  │   ├── qs@6.2.3 </tspan>
+<tspan x="10" y="2234">  │   └── tunnel-agent@0.4.3 </tspan>
+<tspan x="10" y="2250">  ├── mime@1.2.11 </tspan>
+<tspan x="10" y="2266">  ├── moment@2.18.1 </tspan>
+<tspan x="10" y="2282">  ├─┬ ms-rest@2.1.0 </tspan>
+<tspan x="10" y="2298">  │ ├── @types/node@7.0.13 </tspan>
+<tspan x="10" y="2314">  │ ├─┬ @types/request@0.0.42 </tspan>
+<tspan x="10" y="2330">  │ │ └── @types/form-data@0.0.33 </tspan>
+<tspan x="10" y="2346">  │ └── @types/uuid@2.0.29 </tspan>
+<tspan x="10" y="2362">  ├─┬ ms-rest-azure@2.1.1 </tspan>
+<tspan x="10" y="2378">  │ ├─┬ adal-node@0.1.22 </tspan>
+<tspan x="10" y="2394">  │ │ ├─┬ async@2.3.0 </tspan>
+<tspan x="10" y="2410">  │ │ │ └── lodash@4.17.4 </tspan>
+<tspan x="10" y="2426">  │ │ ├── date-utils@1.2.21 </tspan>
+<tspan x="10" y="2442">  │ │ ├─┬ jws@3.1.4 </tspan>
+<tspan x="10" y="2458">  │ │ │ ├── base64url@2.0.0 </tspan>
+<tspan x="10" y="2474">  │ │ │ └─┬ jwa@1.1.5 </tspan>
+<tspan x="10" y="2490">  │ │ │   ├── buffer-equal-constant-time@1.0.1 </tspan>
+<tspan x="10" y="2506">  │ │ │   └── ecdsa-sig-formatter@1.0.9 </tspan>
+<tspan x="10" y="2522">  │ │ ├── node-uuid@1.4.7 </tspan>
+<tspan x="10" y="2538">  │ │ ├── xmldom@0.1.27 </tspan>
+<tspan x="10" y="2554">  │ │ └── xpath.js@1.0.7 </tspan>
+<tspan x="10" y="2570">  │ └── async@0.2.7 </tspan>
+<tspan x="10" y="2586">  ├─┬ request@2.81.0 </tspan>
+<tspan x="10" y="2602">  │ ├── aws-sign2@0.6.0 </tspan>
+<tspan x="10" y="2618">  │ ├── aws4@1.6.0 </tspan>
+<tspan x="10" y="2634">  │ ├── caseless@0.12.0 </tspan>
+<tspan x="10" y="2650">  │ ├─┬ combined-stream@1.0.5 </tspan>
+<tspan x="10" y="2666">  │ │ └── delayed-stream@1.0.0 </tspan>
+<tspan x="10" y="2682">  │ ├── extend@3.0.0 </tspan>
+<tspan x="10" y="2698">  │ ├── forever-agent@0.6.1 </tspan>
+<tspan x="10" y="2714">  │ ├─┬ form-data@2.1.4 </tspan>
+<tspan x="10" y="2730">  │ │ └── asynckit@0.4.0 </tspan>
+<tspan x="10" y="2746">  │ ├─┬ har-validator@4.2.1 </tspan>
+<tspan x="10" y="2762">  │ │ ├─┬ ajv@4.11.7 </tspan>
+<tspan x="10" y="2778">  │ │ │ ├── co@4.6.0 </tspan>
+<tspan x="10" y="2794">  │ │ │ └─┬ json-stable-stringify@1.0.1 </tspan>
+<tspan x="10" y="2810">  │ │ │   └── jsonify@0.0.0 </tspan>
+<tspan x="10" y="2826">  │ │ └── har-schema@1.0.5 </tspan>
+<tspan x="10" y="2842">  │ ├─┬ hawk@3.1.3 </tspan>
+<tspan x="10" y="2858">  │ │ ├── boom@2.10.1 </tspan>
+<tspan x="10" y="2874">  │ │ ├── cryptiles@2.0.5 </tspan>
+<tspan x="10" y="2890">  │ │ ├── hoek@2.16.3 </tspan>
+<tspan x="10" y="2906">  │ │ └── sntp@1.0.9 </tspan>
+<tspan x="10" y="2922">  │ ├─┬ http-signature@1.1.1 </tspan>
+<tspan x="10" y="2938">  │ │ ├── assert-plus@0.2.0 </tspan>
+<tspan x="10" y="2954">  │ │ ├─┬ jsprim@1.4.0 </tspan>
+<tspan x="10" y="2970">  │ │ │ ├── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="2986">  │ │ │ ├── extsprintf@1.0.2 </tspan>
+<tspan x="10" y="3002">  │ │ │ ├── json-schema@0.2.3 </tspan>
+<tspan x="10" y="3018">  │ │ │ └── verror@1.3.6 </tspan>
+<tspan x="10" y="3034">  │ │ └─┬ sshpk@1.13.0 </tspan>
+<tspan x="10" y="3050">  │ │   ├── asn1@0.2.3 </tspan>
+<tspan x="10" y="3066">  │ │   ├── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="3082">  │ │   ├── bcrypt-pbkdf@1.0.1 </tspan>
+<tspan x="10" y="3098">  │ │   ├─┬ dashdash@1.14.1 </tspan>
+<tspan x="10" y="3114">  │ │   │ └── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="3130">  │ │   ├── ecc-jsbn@0.1.1 </tspan>
+<tspan x="10" y="3146">  │ │   ├─┬ getpass@0.1.6 </tspan>
+<tspan x="10" y="3162">  │ │   │ └── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="3178">  │ │   ├── jodid25519@1.0.2 </tspan>
+<tspan x="10" y="3194">  │ │   ├── jsbn@0.1.1 </tspan>
+<tspan x="10" y="3210">  │ │   └── tweetnacl@0.14.5 </tspan>
+<tspan x="10" y="3226">  │ ├── is-typedarray@1.0.0 </tspan>
+<tspan x="10" y="3242">  │ ├── isstream@0.1.2 </tspan>
+<tspan x="10" y="3258">  │ ├── json-stringify-safe@5.0.1 </tspan>
+<tspan x="10" y="3274">  │ ├─┬ mime-types@2.1.15 </tspan>
+<tspan x="10" y="3290">  │ │ └── mime-db@1.27.0 </tspan>
+<tspan x="10" y="3306">  │ ├── oauth-sign@0.8.2 </tspan>
+<tspan x="10" y="3322">  │ ├── performance-now@0.2.0 </tspan>
+<tspan x="10" y="3338">  │ ├── qs@6.4.0 </tspan>
+<tspan x="10" y="3354">  │ ├── safe-buffer@5.0.1 </tspan>
+<tspan x="10" y="3370">  │ ├── stringstream@0.0.5 </tspan>
+<tspan x="10" y="3386">  │ ├─┬ tough-cookie@2.3.2 </tspan>
+<tspan x="10" y="3402">  │ │ └── punycode@1.4.1 </tspan>
+<tspan x="10" y="3418">  │ └── tunnel-agent@0.6.0 </tspan>
+<tspan x="10" y="3434">  ├── underscore@1.4.4 </tspan>
+<tspan x="10" y="3450">  └── uuid@3.0.1</tspan>
+</text>
+</svg>

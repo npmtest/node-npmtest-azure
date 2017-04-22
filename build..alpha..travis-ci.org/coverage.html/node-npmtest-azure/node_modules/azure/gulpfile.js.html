@@ -1,0 +1,2015 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-azure/node_modules/azure/gulpfile.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-azure">npmtest-azure (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-azure/node_modules/azure/gulpfile.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">4.02% <small>(7 / 174)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 69)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">4.17% <small>(7 / 168)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-azure/node_modules/azure/</a> &#187; gulpfile.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598</td><td class="line-coverage"><span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const gulp = require('gulp');
+<span class="cstat-no" title="statement not covered" >const args = require('yargs').argv;</span>
+<span class="cstat-no" title="statement not covered" >const colors = require('colors');</span>
+<span class="cstat-no" title="statement not covered" >const fs = require('fs');</span>
+<span class="cstat-no" title="statement not covered" >const util = require('util');</span>
+<span class="cstat-no" title="statement not covered" >const path = require('path');</span>
+<span class="cstat-no" title="statement not covered" >const glob = require('glob');</span>
+<span class="cstat-no" title="statement not covered" >const execSync = require('child_process').execSync;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >const mappings = {</span>
+  'advisor': {
+    'packageName': 'azure-arm-advisor',
+    'dir': 'advisorManagement/lib',
+    'source': 'arm-advisor/2017-03-31/swagger/advisor.json'
+  },
+  'analysisservices': {
+    'packageName': 'azure-arm-analysisservices',
+    'dir': 'analysisServices/lib',
+    'source': 'arm-analysisservices/2016-05-16/swagger/analysisservices.json',
+  },
+  'authorization': {
+    'packageName': 'azure-arm-authorization',
+    'dir': 'authorizationManagement/lib',
+    'source': 'arm-authorization/2015-07-01/swagger/authorization.json',
+    'ft': 1
+  },
+  'automation': {
+    'packageName': 'azure-arm-automation',
+    'dir': 'automationManagement/lib',
+    'source': 'arm-automation/compositeAutomation.json',
+    'modeler': 'CompositeSwagger'
+  },
+  'batch.Management': {
+    'packageName': 'azure-arm-batch',
+    'dir': 'batchManagement/lib',
+    'source': 'arm-batch/2017-01-01/swagger/BatchManagement.json',
+    'ft': 1
+  },
+  'batch.Service': {
+    'packageName': 'azure-batch',
+    'dir': 'batch/lib',
+    'source': 'batch/2017-01-01.4.0/swagger/BatchService.json',
+    'ft': 1
+  },
+  'billing': {
+    'packageName': 'azure-arm-billing',
+    'dir': 'billingManagement/lib',
+    'source': 'arm-billing/2017-02-27-preview/swagger/billing.json',
+    'ft': 1
+  },
+  'cdn': {
+    'packageName': 'azure-arm-cdn',
+    'dir': 'cdnManagement/lib',
+    'source': 'arm-cdn/2016-10-02/swagger/cdn.json',
+    'ft': 2
+  },
+  'coginitiveServices': {
+    'packageName': 'azure-arm-coginitiveServices',
+    'dir': 'coginitiveServicesManagement/lib',
+    'source': 'arm-cognitiveservices/2016-02-01-preview/swagger/cognitiveservices.json'
+  },
+  'commerce': {
+    'packageName': 'azure-arm-commerce',
+    'dir': 'commerce/lib',
+    'source': 'arm-commerce/2015-06-01-preview/swagger/commerce.json',
+    'ft': 2
+  },
+  'compute': {
+    'packageName': 'azure-arm-compute',
+    'dir': 'computeManagement2/lib',
+    'source': 'arm-compute/compositeComputeClient.json',
+    'ft': 1,
+    'modeler': 'CompositeSwagger'
+  },
+  'containerregistry': {
+    'packageName': 'azure-arm-containerregistry',
+    'dir': 'containerRegistryManagement/lib',
+    'source': 'arm-containerregistry/2017-03-01/swagger/containerregistry.json'
+  },
+  'customerinsights': {
+    'packageName': 'azure-arm-customerinsights',
+    'dir': 'customerInsightsManagement/lib',
+    'source': 'arm-customer-insights/2017-01-01/swagger/customer-insights.json'
+  },
+  'datalake-analytics.account': {
+    'packageName': 'azure-arm-datalake-analytics',
+    'dir': 'dataLake.Analytics/lib/account',
+    'source': 'arm-datalake-analytics/account/2016-11-01/swagger/account.json'
+  },
+  'datalake-analytics.catalog': {
+    'packageName': 'azure-arm-datalake-analytics',
+    'dir': 'dataLake.Analytics/lib/catalog',
+    'source': 'arm-datalake-analytics/catalog/2016-11-01/swagger/catalog.json'
+  },
+  'datalake-analytics.job': {
+    'packageName': 'azure-arm-datalake-analytics',
+    'dir': 'dataLake.Analytics/lib/job',
+    'source': 'arm-datalake-analytics/job/2016-11-01/swagger/job.json'
+  },
+  'datalake-store.account': {
+    'packageName': 'azure-arm-datalake-store',
+    'dir': 'dataLake.Store/lib/account',
+    'source': 'arm-datalake-store/account/2016-11-01/swagger/account.json'
+  },
+  'datalake-store.filesystem': {
+    'packageName': 'azure-arm-datalake-store',
+    'dir': 'dataLake.Store/lib/filesystem',
+    'source': 'arm-datalake-store/filesystem/2016-11-01/swagger/filesystem.json'
+  },
+  'devtestlabs': {
+    'packageName': 'azure-arm-devtestlabs',
+    'dir': 'devTestLabs/lib',
+    'source': 'arm-devtestlabs/2016-05-15/swagger/DTL.json'
+  },
+  'dns': {
+    'packageName': 'azure-arm-dns',
+    'dir': 'dnsManagement/lib',
+    'source': 'arm-dns/2016-04-01/swagger/dns.json'
+  },
+  'documentdb': {
+    'packageName': 'azure-arm-documentdb',
+    'dir': 'documentdbManagement/lib',
+    'source': 'arm-documentdb/2015-04-08/swagger/documentdb.json',
+    'clientName': 'DocumentdbManagementClient'
+  },
+  'eventhub': {
+    'packageName': 'azure-arm-eventhub',
+    'dir': 'eventHubManagement/lib',
+    'source': 'arm-eventhub/2015-08-01/swagger/EventHub.json'
+  },
+  'graph': {
+    'packageName': 'azure-graph',
+    'dir': 'graphManagement/lib',
+    'source': 'arm-graphrbac/compositeGraphRbacManagementClient.json',
+    'ft': 1,
+    'modeler': 'CompositeSwagger'
+  },
+  'intune': {
+    'packageName': 'azure-arm-intune',
+    'dir': 'intune/lib',
+    'source': 'arm-intune/2015-01-14-preview/swagger/intune.json',
+  },
+  'insights': {
+    'packageName': 'azure-insights',
+    'dir': 'insights/lib',
+    'source': 'insights/compositeInsightsClient.json',
+    'ft': 1,
+    'modeler': 'CompositeSwagger'
+  },
+  'arm-insights': {
+    'packageName': 'azure-arm-insights',
+    'dir': 'insightsManagement/lib',
+    'source': 'arm-insights/compositeInsightsManagementClient.json',
+    'ft': 1,
+    'modeler': 'CompositeSwagger'
+  },
+  'iothub': {
+    'packageName': 'azure-arm-iothub',
+    'dir': 'iothub/lib',
+    'source': 'arm-iothub/2016-02-03/swagger/iothub.json',
+    'ft': 1
+  },
+  'keyvault': {
+    'packageName': 'azure-keyvault',
+    'dir': 'keyvault/lib',
+    'source': 'keyvault/2016-10-01/swagger/keyvault.json'
+  },
+  'arm-keyvault': {
+    'packageName': 'azure-arm-keyvault',
+    'dir': 'keyVaultManagement/lib',
+    'source': 'arm-keyvault/2015-06-01/swagger/keyvault.json'
+  },
+  'logic': {
+    'packageName': 'azure-arm-logic',
+    'dir': 'logicManagement/lib',
+    'source': 'arm-logic/2016-06-01/swagger/logic.json',
+  },
+  'machinelearning.commitmentPlan': {
+    'packageName': 'azure-arm-machinelearning',
+    'dir': 'machinelearning/lib/commitmentPlan',
+    'source': 'arm-machinelearning/2016-05-01-preview/swagger/commitmentPlans.json'
+  },
+  'machinelearning.webservices': {
+    'packageName': 'azure-arm-machinelearning',
+    'dir': 'machinelearning/lib/webservices',
+    'source': 'arm-machinelearning/2016-05-01-preview/swagger/webservices.json'
+  },
+  'mediaservices': {
+    'packageName': 'azure-arm-mediaservices',
+    'dir': 'mediaServicesManagement/lib',
+    'source': 'arm-mediaservices/2015-10-01/swagger/media.json'
+  },
+  'network': {
+    'packageName': 'azure-arm-network',
+    'dir': 'networkManagement2/lib',
+    'source': 'arm-network/compositeNetworkClient.json',
+    'modeler': 'CompositeSwagger'
+  },
+  'notificationhubs': {
+    'packageName': 'azure-arm-notificationhubs',
+    'dir': 'notificationHubsManagement/lib',
+    'source': 'arm-notificationhubs/2016-03-01/swagger/notificationhubs.json'
+  },
+  'operationalinsights': {
+    'packageName': 'azure-arm-operationalinsights',
+    'dir': 'operationalInsightsManagement2/lib',
+    'source': 'arm-operationalinsights/compositeOperationalInsights.json',
+    'modeler': 'CompositeSwagger',
+    'clientName': 'OperationalInsightsManagementClient'
+  },
+  'powerbiembedded': {
+    'packageName': 'azure-arm-powerbiembedded',
+    'dir': 'powerbiembedded/lib',
+    'source': 'arm-powerbiembedded/2016-01-29/swagger/powerbiembedded.json'
+  },
+  'recoveryservices': {
+    'packageName': 'azure-arm-recoveryservices',
+    'dir': 'recoveryServicesManagement/lib',
+    'source': 'arm-recoveryservices/2016-06-01/swagger/recoveryservices.json'
+  },
+  'recoveryservicesbackup': {
+    'packageName': 'azure-arm-recoveryservicesbackup',
+    'dir': 'recoveryServicesBackupManagement/lib',
+    'source': 'arm-recoveryservicesbackup/compositeRecoveryServicesBackupClient.json',
+    'modeler': 'CompositeSwagger'
+  },
+  'rediscache': {
+    'packageName': 'azure-arm-rediscache',
+    'dir': 'rediscachemanagement/lib',
+    'source': 'arm-redis/2016-04-01/swagger/redis.json',
+    'ft': 1
+  },
+  'relay': {
+    'packageName': 'azure-arm-relay',
+    'dir': 'relayManagement/lib',
+    'source': 'arm-relay/2016-07-01/swagger/relay.json'
+  },
+  'resource.feature': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/feature',
+    'source': 'arm-resources/features/2015-12-01/swagger/features.json'
+  },
+  'resource.link': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/link',
+    'source': 'arm-resources/links/2016-09-01/swagger/links.json'
+  },
+  'resource.lock': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/lock',
+    'source': 'arm-resources/locks/2016-09-01/swagger/locks.json'
+  },
+  'resource.policy': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/policy',
+    'source': 'arm-resources/policy/2016-12-01/swagger/policy.json'
+  },
+  'resource': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/resource',
+    'source': 'arm-resources/resources/2016-09-01/swagger/resources.json'
+  },
+  'resource.subscription': {
+    'packageName': 'azure-arm-resource',
+    'dir': 'resourceManagement/lib/subscription',
+    'source': 'arm-resources/subscriptions/2016-06-01/swagger/subscriptions.json'
+  },
+  'scheduler': {
+    'packageName': 'azure-arm-scheduler',
+    'dir': 'schedulerManagement2/lib',
+    'source': 'arm-scheduler/2016-03-01/swagger/scheduler.json'
+  },
+  'searchindex': {
+    'packageName': 'azure-search',
+    'dir': 'search/lib/index',
+    'source': 'search/2016-09-01/swagger/searchindex.json'
+  },
+  'searchservice': {
+    'packageName': 'azure-search',
+    'dir': 'search/lib/service',
+    'source': 'search/2016-09-01/swagger/searchservice.json'
+  },
+  'arm-search': {
+    'packageName': 'azure-arm-search',
+    'dir': 'searchManagement/lib',
+    'source': 'arm-search/2015-08-19/swagger/search.json'
+  },
+  'servermanagement': {
+    'packageName': 'azure-arm-servermanagement',
+    'dir': 'servermanagement/lib',
+    'source': 'arm-servermanagement/2016-07-01-preview/swagger/servermanagement.json'
+  },
+  'servicemap': {
+    'packageName': 'azure-arm-servicemap',
+    'dir': 'serviceMapManagement/lib',
+    'source': 'arm-service-map/2015-11-01-preview/swagger/arm-service-map.json',
+    'clientName': 'ServicemapManagementClient'
+  },
+  'sb': {
+    'packageName': 'azure-arm-sb',
+    'dir': 'serviceBusManagement2/lib',
+    'source': 'arm-servicebus/2015-08-01/swagger/servicebus.json'
+  },
+  'arm-servicefabric': {
+    'packageName': 'azure-arm-servicefabric',
+    'dir': 'serviceFabricManagement/lib',
+    'source': 'arm-servicefabric/2016-09-01/swagger/servicefabric.json'
+  },
+  'servicefabric': {
+    'packageName': 'azure-servicefabric',
+    'dir': 'serviceFabric/lib',
+    'source': 'servicefabric/2016-01-28/swagger/servicefabric.json',
+    'language': 'NodeJS'
+  },
+  'sql': {
+    'packageName': 'azure-arm-sql',
+    'dir': 'sqlManagement2/lib',
+    'source': 'arm-sql/compositeSql.json',
+    'modeler': 'CompositeSwagger'
+  },
+  'storage': {
+    'packageName': 'azure-arm-storage',
+    'dir': 'storageManagement2/lib',
+    'source': 'arm-storage/2016-12-01/swagger/storage.json',
+    'ft': 2,
+    'clientName': 'StorageManagementClient'
+  },
+  'storageimportexport': {
+    'packageName': 'azure-arm-storageimportexport',
+    'dir': 'storageImportExportManagement/lib',
+    'source': 'arm-storageimportexport/2016-11-01/swagger/storageimportexport.json',
+    'clientName': 'StorageImportExportManagementClient'
+  },
+  'trafficmanager': {
+    'packageName': 'azure-arm-trafficmanager',
+    'dir': 'trafficManagerManagement2/lib',
+    'source': 'arm-trafficmanager/2017-03-01/swagger/trafficmanager.json',
+    'ft': 1
+  },
+  'website': {
+    'packageName': 'azure-arm-website',
+    'dir': 'websiteManagement2/lib',
+    'source': 'arm-web/compositeWebAppClient.json',
+    'ft': 1,
+    'modeler': 'CompositeSwagger'
+  }
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >const defaultAutoRestVersion = '1.0.1-20170331-2300-nightly';</span>
+<span class="cstat-no" title="statement not covered" >var usingAutoRestVersion;</span>
+<span class="cstat-no" title="statement not covered" >const specRoot = args['spec-root'] || "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master";</span>
+<span class="cstat-no" title="statement not covered" >const project = args['project'];</span>
+<span class="cstat-no" title="statement not covered" >var language = 'Azure.NodeJS';</span>
+<span class="cstat-no" title="statement not covered" >var modeler = 'Swagger';</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getAutorestVersion(version) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!version) <span class="cstat-no" title="statement not covered" >version = 'latest';</span></span>
+<span class="cstat-no" title="statement not covered" >  let getVersion, execHelp;</span>
+<span class="cstat-no" title="statement not covered" >  let result = true;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    let getVersionCmd = `autorest --version=${version}`;</span>
+<span class="cstat-no" title="statement not covered" >    let execHelpCmd = `autorest --help`;</span>
+<span class="cstat-no" title="statement not covered" >    console.log(getVersionCmd);</span>
+<span class="cstat-no" title="statement not covered" >    getVersion = execSync(getVersionCmd, { encoding: 'utf8' });</span>
+    //console.debug(getVersion);
+<span class="cstat-no" title="statement not covered" >    console.log(execHelpCmd);</span>
+<span class="cstat-no" title="statement not covered" >    execHelp = execSync(execHelpCmd, { encoding: 'utf8' });</span>
+    //console.debug(execHelp);
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    result = false;</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`An error occurred while getting the "${version}" of autorest and executing "autorest --help":\n ${util.inspect(err, { depth: null })}.`);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return result;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function deleteFolderRecursive(path) {</span>
+<span class="cstat-no" title="statement not covered" >  if (fs.existsSync(path)) {</span>
+<span class="cstat-no" title="statement not covered" >    fs.readdirSync(path).forEach(<span class="fstat-no" title="function not covered" >function (file, index) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var curPath = path + "/" + file;</span>
+<span class="cstat-no" title="statement not covered" >      if (fs.lstatSync(curPath).isDirectory()) { // recurse</span>
+<span class="cstat-no" title="statement not covered" >        deleteFolderRecursive(curPath);</span>
+      } else { // delete file
+<span class="cstat-no" title="statement not covered" >        fs.unlinkSync(curPath);</span>
+      }
+    });
+<span class="cstat-no" title="statement not covered" >    fs.rmdirSync(path);</span>
+  }
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function clearProjectBeforeGenerating(projectDir) {</span>
+<span class="cstat-no" title="statement not covered" >  let modelsDir = `${projectDir}/models`;</span>
+<span class="cstat-no" title="statement not covered" >  let operationsDir = `${projectDir}/operations`;</span>
+<span class="cstat-no" title="statement not covered" >  let clientTypedefFile = path.basename(glob.sync(`${projectDir}/*.d.ts`)[0] || '');</span>
+<span class="cstat-no" title="statement not covered" >  let clientJSFile = `${clientTypedefFile.split('.')[0]}.js`;</span>
+<span class="cstat-no" title="statement not covered" >  let directoriesToBeDeleted = [modelsDir, operationsDir];</span>
+<span class="cstat-no" title="statement not covered" >  let filesToBeDeleted = [clientTypedefFile, clientJSFile];</span>
+<span class="cstat-no" title="statement not covered" >  directoriesToBeDeleted.forEach((dir) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (fs.existsSync(dir)) {</span>
+<span class="cstat-no" title="statement not covered" >      deleteFolderRecursive(dir);</span>
+    }
+  });
+<span class="cstat-no" title="statement not covered" >  filesToBeDeleted.forEach((file) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (fs.existsSync(file)) {</span>
+<span class="cstat-no" title="statement not covered" >      fs.unlinkSync(file);</span>
+    }
+  });
+<span class="cstat-no" title="statement not covered" >  return;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function generateProject(project, specRoot, autoRestVersion) {</span>
+<span class="cstat-no" title="statement not covered" >  let currentModeler = modeler;</span>
+<span class="cstat-no" title="statement not covered" >  let specPath = specRoot + '/' + mappings[project].source;</span>
+<span class="cstat-no" title="statement not covered" >  let result;</span>
+<span class="cstat-no" title="statement not covered" >  language = 'Azure.NodeJS'</span>
+  //servicefabric wants to generate using generic NodeJS.
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].language &amp;&amp; mappings[project].language.match(/^NodeJS$/ig) !== null) {</span>
+<span class="cstat-no" title="statement not covered" >    language = mappings[project].language;</span>
+  }
+  //default Modeler is Swagger. However, some services may want to use CompositeSwaggerModeler
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].modeler &amp;&amp; mappings[project].modeler.match(/^CompositeSwagger$/ig) !== null) {</span>
+<span class="cstat-no" title="statement not covered" >    currentModeler = mappings[project].modeler;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  console.log(`\n&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;Start: "${project}" &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;`);</span>
+<span class="cstat-no" title="statement not covered" >  let outputDir = `lib/services/${mappings[project].dir}`;</span>
+<span class="cstat-no" title="statement not covered" >  let cmd = `autorest -Modeler ${currentModeler} -CodeGenerator ${language} -Input ${specPath}  -outputDirectory ${outputDir} -Header MICROSOFT_MIT_NO_VERSION --version=${autoRestVersion}`;</span>
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].ft !== null &amp;&amp; mappings[project].ft !== undefined) <span class="cstat-no" title="statement not covered" >cmd += ' -FT ' + mappings[project].ft;</span></span>
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].clientName !== null &amp;&amp; mappings[project].clientName !== undefined) <span class="cstat-no" title="statement not covered" >cmd += ' -ClientName ' + mappings[project].clientName;</span></span>
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].args !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >    cmd = cmd + ' ' + args;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`Cleaning the output directory: "${outputDir}".`);</span>
+<span class="cstat-no" title="statement not covered" >    clearProjectBeforeGenerating(outputDir);</span>
+<span class="cstat-no" title="statement not covered" >    console.log('Executing command:');</span>
+<span class="cstat-no" title="statement not covered" >    console.log('------------------------------------------------------------');</span>
+<span class="cstat-no" title="statement not covered" >    console.log(cmd);</span>
+<span class="cstat-no" title="statement not covered" >    console.log('------------------------------------------------------------');</span>
+<span class="cstat-no" title="statement not covered" >    result = execSync(cmd, { encoding: 'utf8' });</span>
+<span class="cstat-no" title="statement not covered" >    console.log('Output:');</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result);</span>
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    console.log('Error:');</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`An error occurred while generating client for project: "${project}":\n ${util.inspect(err, { depth: null })}`);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  console.log(`&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;End: "${project}" &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\n`);</span>
+<span class="cstat-no" title="statement not covered" >  return;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function installAutorest() {</span>
+<span class="cstat-no" title="statement not covered" >  let installation;</span>
+<span class="cstat-no" title="statement not covered" >  let isSuccessful = true;</span>
+<span class="cstat-no" title="statement not covered" >  let autorestAlreadyInstalled = true;</span>
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    execSync(`autorest --help`);</span>
+  } catch (error) {
+<span class="cstat-no" title="statement not covered" >    autorestAlreadyInstalled = false;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  try {</span>
+<span class="cstat-no" title="statement not covered" >    if (!autorestAlreadyInstalled) {</span>
+<span class="cstat-no" title="statement not covered" >      console.log('Looks like autorest is not installed on your machine. Installing autorest . . .');</span>
+<span class="cstat-no" title="statement not covered" >      let installCmd = 'npm install -g autorest';</span>
+<span class="cstat-no" title="statement not covered" >      console.log(installCmd);</span>
+<span class="cstat-no" title="statement not covered" >      installation = execSync(installCmd, { encoding: 'utf8' });</span>
+      //console.debug('installation');
+    }
+<span class="cstat-no" title="statement not covered" >    isSuccessful = getAutorestVersion();</span>
+  } catch (err) {
+<span class="cstat-no" title="statement not covered" >    isSuccessful = false;</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`An error occurred while installing autorest via npm:\n ${util.inspect(err, { depth: null })}.`);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return isSuccessful;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function codegen(project, index) {</span>
+<span class="cstat-no" title="statement not covered" >  let versionSuccessfullyFound = false;</span>
+<span class="cstat-no" title="statement not covered" >  if (mappings[project].autorestversion) {</span>
+<span class="cstat-no" title="statement not covered" >    usingAutoRestVersion = mappings[project].autoRestVersion;</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    usingAutoRestVersion = defaultAutoRestVersion;</span>
+  }
+<span class="cstat-no" title="statement not covered" >  if (index === 0) {</span>
+<span class="cstat-no" title="statement not covered" >    versionSuccessfullyFound = getAutorestVersion(usingAutoRestVersion);</span>
+<span class="cstat-no" title="statement not covered" >    if (!versionSuccessfullyFound) {</span>
+<span class="cstat-no" title="statement not covered" >      process.exit(1);</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return generateProject(project, specRoot, usingAutoRestVersion);</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >gulp.task('default', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >  console.log("Usage: gulp codegen [--spec-root &lt;swagger specs root&gt;] [--project &lt;project name&gt;]\n");</span>
+<span class="cstat-no" title="statement not covered" >  console.log("--spec-root");</span>
+<span class="cstat-no" title="statement not covered" >  console.log("\tRoot location of Swagger API specs, default value is \"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master\"");</span>
+<span class="cstat-no" title="statement not covered" >  console.log("--project\n\tProject to regenerate, default is all. List of available project names:");</span>
+<span class="cstat-no" title="statement not covered" >  Object.keys(mappings).forEach(<span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.log('\t' + i.magenta);</span>
+  });
+});
+&nbsp;
+//This task is used to generate libraries based on the mappings specified above.
+<span class="cstat-no" title="statement not covered" >gulp.task('codegen', <span class="fstat-no" title="function not covered" >function (cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >  if (true) {</span>
+<span class="cstat-no" title="statement not covered" >    if (project === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      let arr = Object.keys(mappings);</span>
+<span class="cstat-no" title="statement not covered" >      for (let i = 0; i &lt; arr.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        codegen(arr[i], i);</span>
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      if (mappings[project] === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        console.error('Invalid project name "' + project + '"!');</span>
+<span class="cstat-no" title="statement not covered" >        process.exit(1);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      codegen(project, null);</span>
+    }
+  } else {
+<span class="cstat-no" title="statement not covered" >    process.exit(1);</span>
+  }
+});
+&nbsp;
+//This task validates that the entry in "main" and "types" in package.json points to a file that exists on the disk.
+// for best results run on mac or linux. Windows is case insenstive for file paths. Hence it will not catch those issues.
+//If not tested this will cause "module not found" errors for customers when they try to use the package.
+<span class="cstat-no" title="statement not covered" >gulp.task('validate-each-packagejson', (cb) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  let packagePaths = glob.sync(path.join(__dirname, '/lib/services', '/**/package.json'));</span>
+<span class="cstat-no" title="statement not covered" >  packagePaths.forEach((packagePath) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const package = require(packagePath);</span>
+    //console.log(package);
+<span class="cstat-no" title="statement not covered" >    if (package.name.startsWith('azure-arm-')) {</span>
+<span class="cstat-no" title="statement not covered" >      console.log(`Validating package: ${package.name}`);</span>
+<span class="cstat-no" title="statement not covered" >      if (package.main) {</span>
+<span class="cstat-no" title="statement not covered" >        let mainPath = path.resolve(path.dirname(packagePath), package.main);</span>
+<span class="cstat-no" title="statement not covered" >        if (!fs.existsSync(mainPath)) <span class="cstat-no" title="statement not covered" >console.log(`\t&gt;${mainPath} does not exist.`);</span></span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        console.log(`\t&gt;Could not find "main" entry in package.json for ${packagePath}.`);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (package.types) {</span>
+<span class="cstat-no" title="statement not covered" >        let typesPath = path.resolve(path.dirname(packagePath), package.types);</span>
+<span class="cstat-no" title="statement not covered" >        if (!fs.existsSync(typesPath)) <span class="cstat-no" title="statement not covered" >console.log(`\t&gt;${typesPath} does not exist.`);</span></span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        console.log(`\t&gt;Could not find "types" entry in package.json for ${packagePath}.`);</span>
+      }
+    }
+  });
+});
+&nbsp;
+//This task updates the dependencies in package.json to the relative service libraries inside lib/services directory.
+<span class="cstat-no" title="statement not covered" >gulp.task('update-deps-rollup', (cb) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  let packagePaths = glob.sync(path.join(__dirname, './lib/services', '/**/package.json'));</span>
+<span class="cstat-no" title="statement not covered" >  let rollupPackage = require('./package.json');</span>
+<span class="cstat-no" title="statement not covered" >  let rollupDependencies = rollupPackage.dependencies;</span>
+<span class="cstat-no" title="statement not covered" >  rollupDependencies['ms-rest'] = './runtime/ms-rest';</span>
+<span class="cstat-no" title="statement not covered" >  rollupDependencies['ms-rest-azure'] = './runtime/ms-rest-azure';</span>
+<span class="cstat-no" title="statement not covered" >  packagePaths.forEach((packagePath) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const package = require(packagePath);</span>
+    //console.log(package);
+<span class="cstat-no" title="statement not covered" >    let packageName = package.name</span>
+<span class="cstat-no" title="statement not covered" >    packageDir = path.dirname(packagePath);</span>
+<span class="cstat-no" title="statement not covered" >    if (rollupDependencies[packageName]) {</span>
+<span class="cstat-no" title="statement not covered" >      rollupDependencies[packageName] = packageDir;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      console.log(`Could not find ${packageName} as a dependecy in rollup package.json file..`);</span>
+    }
+  });
+<span class="cstat-no" title="statement not covered" >  fs.writeFileSync('./package.json', JSON.stringify(rollupPackage, null, 2), { 'encoding': 'utf8' });</span>
+});
+&nbsp;
+//This task ensures that all the exposed createSomeClient() methods, can correctly instantiate clients. By doing this we test,
+//that the "main" entry in package.json points to a file at the correct location. We test the signature of the client constructor 
+//is as expected. As of now HD Isnight is expected to fail as it is still using the Hyak generator. Once it moves to Autorest, it should
+//not fail.
+<span class="cstat-no" title="statement not covered" >gulp.task('test-create-rollup', (cb) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const azure = require('./lib/azure');</span>
+<span class="cstat-no" title="statement not covered" >  const keys = Object.keys(azure).filter((key) =&gt; { <span class="cstat-no" title="statement not covered" >return key.startsWith('create') &amp;&amp; !key.startsWith('createASM') &amp;&amp; key.endsWith('Client') &amp;&amp; key !== 'createSchedulerClient' }</span>);</span>
+  //console.dir(keys);
+  //console.log(keys.length);
+<span class="cstat-no" title="statement not covered" >  const creds = { signRequest: {} };</span>
+<span class="cstat-no" title="statement not covered" >  const subId = '1234556';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  keys.forEach((key) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(key);</span>
+<span class="cstat-no" title="statement not covered" >    const Client = azure[key];</span>
+<span class="cstat-no" title="statement not covered" >    var c;</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      if (key === 'createKeyVaultClient' || key === 'createSubscriptionManagementClient' ||</span>
+        key === 'createDataLakeAnalyticsJobManagementClient' || key === 'createDataLakeStoreFileSystemManagementClient' ||
+        key === 'createDataLakeAnalyticsCatalogManagementClient') {
+<span class="cstat-no" title="statement not covered" >        c = new Client(creds);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        c = new Client(creds, subId);</span>
+      }
+      //console.dir(Object.keys(c));
+    } catch (err) {
+<span class="cstat-no" title="statement not covered" >      console.dir(err);</span>
+    }
+  });
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 22 2017 15:06:01 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
